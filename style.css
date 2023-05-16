@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  color: var(--text-color);
+  font-size: var(--text-size);
+  font-family: var(--font-family);
+  font-variant: small-caps;
+}
+
+img, iframe {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+svg {
+  width: var(--text-size);
+  height: var(--text-size);
+  stroke: var(--text-color);
+  width: var(--text-size);
+}
+
+:root {
+  --p1-color: #EDE9F2;
+  --s1-color: #8E6BBF;
+  --p2-color: #AE8FD9;
+  --s2-color: #D2BBF2;
+  --n1-color: #DED0F2;
+  --font-family: "Roboto", sans-serif;
+  --text-color: black;
+  --shadow: black;
+  --text-size: 1.5vh;
+  --header-size: 2vh;
+  --big-text-size: 3vh;
+}
+
+@keyframes rotate-360 {
+  to, from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  90% {
+    transform: rotate(-45deg);
+  }
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+  background: var(--p1-color);
+}
+body .everything {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+body .everything .nav-bar {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+body .everything .nav-bar .logo {
+  cursor: pointer;
+  pointer-events: all;
+  position: absolute;
+  top: 4vh;
+  left: 4vh;
+  font-size: var(--header-size);
+  text-transform: capitalize;
+  font-weight: 100;
+  font-variant: none;
+}
+body .everything .nav-bar .logo span {
+  font-size: var(--header-size);
+}
+body .everything .nav-bar .nav-links {
+  position: absolute;
+  bottom: 4vh;
+  left: 4vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5vh;
+}
+body .everything .nav-bar .nav-links .nav-link {
+  pointer-events: all;
+  font-size: var(--header-size);
+  font-variant: none;
+  cursor: pointer;
+}
+body .everything .nav-bar .mail-link {
+  cursor: pointer;
+  pointer-events: all;
+  position: absolute;
+  z-index: 4;
+  bottom: 4vh;
+  right: 4vh;
+  font-size: var(--header-size);
+  font-variant: none;
+  text-transform: lowercase;
+}
+body .everything .home-page .middle-thing {
+  width: 40vh;
+  height: 40vh;
+  background: var(--s1-color);
+  border-radius: 100%;
+  position: relative;
+}
+body .everything .home-page .middle-thing svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  stroke-width: 14;
+  stroke: var(--p1-color);
+  fill: var(--shadow);
+}
+body .everything #page {
+  width: 100%;
+  min-height: 100dvh;
+  transition: 0.2s linear;
+  display: flex;
+  position: fixed;
+  z-index: -1;
+  align-items: center;
+  justify-content: center;
+  background: var(--p1-color);
+  padding: 4vh;
+  opacity: 0%;
+}
+body .everything #page .nav-header {
+  position: absolute;
+  top: 4vh;
+  border-bottom: 0.5vh solid var(--p2-color);
+  left: 4vh;
+}
+body .everything #page .nav-header .page-closer {
+  font-size: var(--big-text-size);
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+body .everything .portfolio-page {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+}
+body .everything .portfolio-page .video {
+  border: 1vh solid var(--s2-color);
+}
+body .everything .portfolio-page .videos {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto;
+  gap: 5vh;
+  padding: 5vh;
+}
+body .everything .portfolio-page .videos .show-reel {
+  width: 100%;
+  gap: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .everything .portfolio-page .videos .show-reel .video {
+  width: 50%;
+  height: 50vh;
+  background: var(--p2-color);
+}
+body .everything .portfolio-page .videos .show-reel .text {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--header-size);
+}
+body .everything .portfolio-page .videos .video-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2vh;
+}
+body .everything .portfolio-page .videos .video-row:nth-child(3) {
+  padding-left: 10vh;
+}
+body .everything .portfolio-page .videos .video-row:nth-child(4) {
+  padding-left: 20vh;
+}
+body .everything .portfolio-page .videos .video-row .video {
+  cursor: pointer;
+  width: 100%;
+  height: 30vh;
+  position: relative;
+  background: var(--p2-color);
+}
+body .everything .portfolio-page .videos .video-row .video .video-overlay {
+  transition: 0.2s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: linear-gradient(to top, var(--p1-color), transparent);
+}
+@media (hover: hover) {
+  body .everything .portfolio-page .videos .video-row .video:hover .video-overlay {
+    height: 100%;
+    padding: 2vh;
+  }
+  body .everything .portfolio-page .videos .video-row .video .video-overlay {
+    height: 0%;
+  }
+}
+@media (hover: none) {
+  body .everything .portfolio-page .videos .video-row .video .video-overlay {
+    height: 100%;
+    padding: 2vh;
+  }
+}
+body .everything .portfolio-page .videos .video-row .text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: var(--header-size);
+}
+body .everything .portfolio-page .videos .video-row-potrait {
+  width: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 2vh;
+}
+body .everything .portfolio-page .videos .video-row-potrait .video {
+  width: 30vh;
+  height: 50vh;
+  background: var(--s2-color);
+}
+body .everything .portfolio-page .videos .video-row-potrait .text {
+  display: flex;
+  width: 30vh;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--header-size);
+}
+body .everything .about-page .photo {
+  width: 40vh;
+  height: 40vh;
+  background: var(--n1-color);
+}/*# sourceMappingURL=style.css.map */
